@@ -1,13 +1,13 @@
 getting started with R
 ========================================================
-author: Martin Monkman & Julie Hawkins
+author: Martin Monkman & Julie Hawkins with Wern Grundlingh
 date: 2017-11-17
 autosize: true
 
 
 
 
-
+getting staRted
 ========================================================
 title: false
 
@@ -18,12 +18,12 @@ title: false
 
 
 
-getting staRted
+our workflow
 ========================================================
 
 
 <div align="center">
-<img src="going-on-adventure.gif" width=1200 height=600>
+<img src="data-science.png" width=1200 height=600>
 </div>
 
 
@@ -69,6 +69,16 @@ Type in the console window:
 
 3 + 4
 
+```
+
+
+Assign values to variables 
+========================================================
+
+Start a new R script file
+
+```{r}
+
 x <- 3
 y <- 4
 
@@ -79,6 +89,40 @@ z
 
 ```
 
+
+
+
+Packages
+========================================================
+
+R uses "packages" to extend the functionality
+
+One set of packages is known as "the tidyverse"
+
+
+Installing the tidyverse
+========================================================
+
+```{r}
+
+install.packages("tidyverse")
+
+library(tidyverse)
+
+```
+
+
+`ggplot2`
+========================================================
+
+package for data visualization
+
+```{r}
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+
+```
 
 
 Example First Slide
