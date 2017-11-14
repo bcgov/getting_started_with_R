@@ -49,7 +49,7 @@ Base R: a script-based statistical analysis tool
 
 - And in RStudio, an IDE that streamlines much of your work
 
-- Including authoring tools
+- Including authoring tools for communication
 
 
 The RStudio screen 
@@ -100,12 +100,21 @@ R uses "packages" to extend the functionality
 One set of packages is known as "the tidyverse"
 
 
+
 Installing the tidyverse
 ========================================================
 
-```{r}
+To install a package:
+
+```{r eval = FALSE}
 
 install.packages("tidyverse")
+
+```
+
+To load a package, once it's installed:
+
+```{r}
 
 library(tidyverse)
 
@@ -123,6 +132,32 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy))
 
 ```
+
+
+
+A regression model
+========================================================
+
+
+```{r}
+
+mpg_model <- lm(data = mpg, hwy ~ displ)
+
+mpg_model
+
+```
+
+
+The summary from the regression model
+========================================================
+
+
+```{r}
+
+summary(mpg_model)
+
+```
+
 
 
 Example First Slide
