@@ -52,6 +52,18 @@ Base R: a script-based statistical analysis tool
 - Including authoring tools for communication
 
 
+Some examples
+========================================================
+
+Ministry of Environment: Land Designations
+http://www.env.gov.bc.ca/soe/indicators/land/land-designations.html
+
+
+U.S. Census: ethnic diversity by neighborhood
+https://walkerke.shinyapps.io/neighborhood_diversity/
+
+
+
 The RStudio screen 
 ========================================================
 
