@@ -278,20 +278,36 @@ mpg %>%                                 ## take my data, then (%>%)
 Something that looks like a pivot table, part 2
 ========================================================
 
-or make it prettier, as an actual dataframe:
+or make it an actual dataframe:
 
 ```{r}
 mytable <- mpg %>% group_by(class) %>% summarise(mean = mean(displ)) %>% arrange(desc(mean))
+
 mytable <- as.data.frame(mytable)
+
 mytable
 
 ```
 
+
+
+More table stuff
+========================================================
+Note that spread() and gather() are from tidyr
+
 ```{r}
 
-# mean_disp_by_class_by_cyl <- mpg %>%
-#   group_by(class, cyl) %>%
-#   summarise(mean = mean(displ))
+class_by_cyl <- mpg %>%
+  group_by(class, cyl) %>%
+  summarise(mean = mean(displ)) %>%
+  arrange(desc(mean))
+
+class_by_cyl <- as.data.frame(class_by_cyl)
+
+class_by_cyl <- gather(data = class_by_cyl, key = var, value = n, cyl:mean)
+
+class_by_cyl <- spread(data = class_by_cyl, key = cyl, value = mean)
+
 
 ```
 
