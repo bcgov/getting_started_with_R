@@ -194,22 +194,108 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 
 
 
-
-Something that looks like a pivot table
+Quick detour: Getting help
 ========================================================
 
-Julie : mpg
+Typing a question mark (?) and a package or function brings up the Help info (bottom right pane)
 
-
-
-Getting help
-========================================================
+Type the following:
 
 ```{r eval = FALSE}
 
 ?mpg
 
+
 ```
+
+Or, once a package is loaded, it is accessible through the Help pane (bottom right) 
+and will auto-fill once you start typing, which often shows many other things!
+
+
+
+
+Quick detour: base R
+========================================================
+
+```{r}
+
+#View(mpg)       # opens data to view, too big to show here
+
+names(mpg)
+
+summary(as.factor(mpg$class))
+
+summary(mpg)
+
+```
+
+
+
+Quick detour: dplyr
+========================================================
+
+If you don't already have tidyverse (installed and) loaded, do so, OR (install and) load dplyr
+
+```{r}
+
+library(dplyr)
+
+```
+
+A few of dplyr's many useful data manipulation verbs:
+- mutate()
+- select()
+- rename()
+- filter()
+- summarise()
+- arrange()
+
+```{r}
+
+mpg %>%
+  summarise(minYear = min(year), maxYear = max(year))
+
+```
+
+https://github.com/tidyverse/dplyr
+
+
+
+Something that looks like a pivot table
+========================================================
+
+
+```{r}
+
+mpg %>%                                 ## take my data, then (%>%)
+  group_by(class) %>%                   ## group data by variable "class", then
+  summarise(mean = mean(displ)) %>%     ## calcaulte mean of variable "displ" for each, then
+  arrange(desc(mean))                   ## sort descending by that mean (ascending is simply "arrange(mean)")
+
+```
+
+
+Something that looks like a pivot table, part 2
+========================================================
+
+or make it prettier, as an actual dataframe:
+
+```{r}
+mytable <- mpg %>% group_by(class) %>% summarise(mean = mean(displ)) %>% arrange(desc(mean))
+mytable <- as.data.frame(mytable)
+mytable
+
+```
+
+```{r}
+
+# mean_disp_by_class_by_cyl <- mpg %>%
+#   group_by(class, cyl) %>%
+#   summarise(mean = mean(displ))
+
+```
+
+
 
 
 
