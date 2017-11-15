@@ -1,6 +1,6 @@
-getting started with R
+getting staRted with R
 ========================================================
-author: Martin Monkman & Julie Hawkins with Wern Grundlingh
+author: Martin Monkman & Julie Hawkins
 date: 2017-11-17
 autosize: true
 
@@ -61,6 +61,13 @@ http://www.env.gov.bc.ca/soe/indicators/land/land-designations.html
 
 U.S. Census: ethnic diversity by neighborhood
 https://walkerke.shinyapps.io/neighborhood_diversity/
+
+
+
+Another example: Stephanie's work unit tables
+========================================================
+
+wow the crowd
 
 
 
@@ -153,6 +160,8 @@ A regression model
 
 ```{r}
 
+lm(data = mpg, hwy ~ displ)
+
 mpg_model <- lm(data = mpg, hwy ~ displ)
 
 mpg_model
@@ -182,6 +191,28 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
   stat_smooth(method = lm)
 
 ```
+
+
+
+
+Something that looks like a pivot table
+========================================================
+
+Julie : mpg
+
+
+
+Getting help
+========================================================
+
+```{r eval = FALSE}
+
+?mpg
+
+```
+
+
+
 
 
 
