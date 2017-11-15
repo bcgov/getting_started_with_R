@@ -306,7 +306,8 @@ class_by_cyl <- as.data.frame(class_by_cyl)
 
 class_by_cyl <- gather(data = class_by_cyl, key = var, value = n, cyl:mean)
 
-class_by_cyl <- spread(data = class_by_cyl, key = cyl, value = mean)
+class_by_cyl <- class_by_cyl %>%
+  spread(var, value = mean, drop = FALSE)
 
 
 ```
