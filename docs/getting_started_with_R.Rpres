@@ -59,6 +59,13 @@ An amazing example: Stephanie's work unit tables
 
 wow the crowd
 
+* screen shot of SPSS file
+* screen shot of R code part 1
+* screen shot of CSV output
+* show Excel output
+  - start with Excel with README tab
+  - run code part 3 WU
+  - show full file
 
 
 The RStudio screen 
@@ -189,7 +196,7 @@ Data Visualization
 
 R Data for Science - Garrett Grolemund & Hadley Wickham
 
-http://r4ds.had.co.nz/data-visualisation.html
+http://r4ds.had.co.nz/data-visualisation#aesthetic-mappings.html
 
 
 example plots - really nifty
