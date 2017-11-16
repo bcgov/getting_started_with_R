@@ -52,19 +52,9 @@ Base R: a script-based statistical analysis tool
 - Including authoring tools for communication
 
 
-Some examples
-========================================================
-
-Ministry of Environment: Land Designations
-http://www.env.gov.bc.ca/soe/indicators/land/land-designations.html
 
 
-U.S. Census: ethnic diversity by neighborhood
-https://walkerke.shinyapps.io/neighborhood_diversity/
-
-
-
-Another example: Stephanie's work unit tables
+An amazing example: Stephanie's work unit tables
 ========================================================
 
 wow the crowd
@@ -194,6 +184,19 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 
 
 
+Data Visualization
+========================================================
+
+R Data for Science - Garrett Grolemund & Hadley Wickham
+
+http://r4ds.had.co.nz/data-visualisation.html
+
+
+example plots - really nifty
+
+
+
+
 Quick detour: Getting help
 ========================================================
 
@@ -217,17 +220,17 @@ and will auto-fill once you start typing, which often shows many other things!
 Quick detour: base R
 ========================================================
 
-```{r}
+```{r eval = FALSE}
 
-#View(mpg)       # opens data to view, too big to show here
+View(mpg)       ## opens data to view, too big to show here
 
-names(mpg)
+names(mpg)      ## lists the names of all variables in dataset
 
-summary(as.factor(mpg$class))
-
-summary(mpg)
+summary(mpg)    ## provides statistical summary of data
 
 ```
+
+
 
 
 
@@ -269,31 +272,16 @@ Something that looks like a pivot table
 
 mpg %>%                                 ## take my data, then (%>%)
   group_by(class) %>%                   ## group data by variable "class", then
-  summarise(mean = mean(displ)) %>%     ## calcaulte mean of variable "displ" for each, then
+  summarise(mean = mean(displ)) %>%     ## calculate mean of variable "displ" for each, then
   arrange(desc(mean))                   ## sort descending by that mean (ascending is simply "arrange(mean)")
 
 ```
 
 
-Something that looks like a pivot table, part 2
+
+A pivot table crosstab
 ========================================================
-
-or make it an actual dataframe:
-
-```{r}
-mytable <- mpg %>% group_by(class) %>% summarise(mean = mean(displ)) %>% arrange(desc(mean))
-
-mytable <- as.data.frame(mytable)
-
-mytable
-
-```
-
-
-
-More table stuff
-========================================================
-Note that spread() and gather() are from tidyr
+Note that spread() (and gather(), it's complement) are from tidyr
 
 ```{r}
 
@@ -302,48 +290,39 @@ class_by_cyl <- mpg %>%
   summarise(mean = mean(displ)) %>%
   arrange(desc(mean))
 
-class_by_cyl <- as.data.frame(class_by_cyl)
+class_by_cyl_pivot <- class_by_cyl %>%
+  spread(cyl, value = mean, drop = FALSE)
 
-class_by_cyl <- gather(data = class_by_cyl, key = var, value = n, cyl:mean)
+class_by_cyl_pivot <- as.data.frame(class_by_cyl_pivot)
 
-class_by_cyl <- class_by_cyl %>%
-  spread(var, value = mean, drop = FALSE)
-
+class_by_cyl_pivot
 
 ```
 
 
 
-
-
-
-
-
-
-
-Example First Slide
+Dplyr::Mutate
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+You can create variables that may (or may not) be useful in your analysis
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+``` {r}
+mpg <- mpg %>%
+  mutate(mpg_per_cubic_litre = hwy / displ)
 
-Slide With Code
-========================================================
+summary(mpg$mpg_per_cubic_litre)
 
-```{r}
-summary(cars)
-```
-
-Slide With Plot
-========================================================
-
-```{r, echo=FALSE}
-plot(cars)
 ```
 
 
 
+Some more examples
+========================================================
+
+Ministry of Environment: Land Designations
+http://www.env.gov.bc.ca/soe/indicators/land/land-designations.html
+
+
+U.S. Census: ethnic diversity by neighborhood
+https://walkerke.shinyapps.io/neighborhood_diversity/
 
