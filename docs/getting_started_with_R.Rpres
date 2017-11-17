@@ -39,6 +39,8 @@ Workflow and tooling so that analysis is:
 - Accurate
 - Collaborative
 
+Hilary Parker, ["Opinionated Analysis Development"](https://peerj.com/preprints/3210/), 2017-08-31
+
 
 What is R? 
 ========================================================
@@ -52,17 +54,9 @@ Base R: a script-based statistical analysis tool
 - Including authoring tools for communication
 
 
-
-An amazing example: the steps
-========================================================
-
-* screen shot of SPSS file
-* screen shot of R code part 1
-* screen shot of CSV output
-* show Excel output
-  - start with Excel with README tab
-  - run code part 3 WU
-  - show full file
+An amazing example: Stephanie
+====================================
+type: section
 
 
 
@@ -433,6 +427,9 @@ fancyplot +
 
 
   
+Data wrangling: Julie
+====================================
+type: section
   
   
 
