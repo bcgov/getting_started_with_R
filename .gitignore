@@ -1,6 +1,9 @@
 .Rproj.user
+*.rproj
 .Rhistory
 .RData
 .Ruserdata
 out/
 internal.R
+
+docs/getting_started_with_R-figure/
