@@ -159,6 +159,7 @@ One set of packages is known as "the tidyverse"
 * `dplyr` - data wrangling
 * `tidyr` - to spread and gather data tables
 
+[https://www.tidyverse.org/](https://www.tidyverse.org/)
 
 
 Installing the tidyverse (one package that bundles other packages)
@@ -180,8 +181,6 @@ library(tidyverse)
 
 ```
 
-[https://www.tidyverse.org/](https://www.tidyverse.org/)
-
 
 `ggplot2`: package for data visualization
 ========================================================
@@ -189,10 +188,8 @@ library(tidyverse)
 A simple x-y scatterplot...
 
 ```{r}
-
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point()
-
 ```
 
 `ggplot2`: package for data visualization
@@ -220,13 +217,10 @@ lm(data = mpg, hwy ~ displ)
 Create a regression model object
 ========================================================
 
-
 ```{r}
-
 mpg_model <- lm(data = mpg, hwy ~ displ)
 
 mpg_model
-
 ```
 
 
@@ -246,11 +240,9 @@ Now...add the regression line to the plot
 ========================================================
 
 ```{r}
-
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point() +
   stat_smooth(method = lm)          # add the `lm` 
-
 ```
 
 Now...add the regression line to the plot
@@ -258,11 +250,9 @@ Now...add the regression line to the plot
 title: false
 
 ```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point() +
   stat_smooth(method = lm)          # add the `lm` 
-
 ```
 
 
@@ -283,12 +273,10 @@ More elaborate analysis
 Replace regression line with smoothed LOESS line
 ========================================================
 
-
 ```{r}
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point() +
   stat_smooth(method = loess)          # add the `loess` 
-
 ```
 
 
@@ -300,7 +288,6 @@ title: false
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point() +
   stat_smooth(method = loess)          # add the `loess` 
-
 ```
 
 
@@ -319,7 +306,6 @@ Highlight the "class" of vehicle
 ========================================================
 title: false
 
-
 ```{r, echo = FALSE, fig.height = 10, fig.width = 15}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
@@ -330,27 +316,11 @@ ggplot(data = mpg) +
 Highlight the "class" of vehicle, add a smoothed trend line for "subcompact" and "suv"
 ========================================================
 
-
 ```{r}
 fancyplot <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(mapping = aes(color = class)) + 
   geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE, color = "purple") +
   geom_smooth(data = filter(mpg, class == "suv"), se = FALSE, color = "pink") 
-
-fancyplot
-
-```
-
-Highlight the "class" of vehicle, add a smoothed trend line for "subcompact" and "suv"
-========================================================
-
-
-```{r}
-fancyplot <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
-  geom_point(mapping = aes(color = class)) + 
-  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE, color = "purple") +
-  geom_smooth(data = filter(mpg, class == "suv"), se = FALSE, color = "pink") 
-
 ```
 
 ```{r eval = FALSE}
@@ -375,15 +345,12 @@ fancy plot plus
 ========================================================
 
 ```{r, eval = FALSE}
-
 fancyplot +
   theme_bw() +
   labs(title = "Fuel economy by engine displacement",
        subtitle = "Sub-compacts are more efficient than SUVs",
-       caption = "Source: EPA", 
+       caption = "Source: EPA (fueleconomy.gov)", 
        x = "Engine displacement (cubic litres)", y = "Miles per gallon (highway)") 
-  
-  
 ```
 
 
@@ -398,7 +365,7 @@ fancyplot +
   theme_bw() +
   labs(title = "Fuel economy by engine displacement",
        subtitle = "Sub-compacts are more efficient than SUVs",
-       caption = "Source: the Lahman baseball database", 
+       caption = "Source: EPA (fueleconomy.gov)", 
        x = "Engine displacement (cubic litres)", y = "Miles per gallon (highway)") 
   
   
@@ -523,7 +490,7 @@ mpg %>%                                 ## take my data, then (%>%)
 
 
 
-A pivot table crosstab
+A pivot table crosstab (1/2)
 ========================================================
 Note that spread() (and gather(), it's complement) are from tidyr
 
@@ -533,6 +500,14 @@ class_by_cyl <- mpg %>%
   group_by(class, cyl) %>%
   summarise(mean = mean(displ)) %>%
   arrange(desc(mean))
+
+class_by_cyl
+```
+
+A pivot table crosstab (2/2)
+========================================================
+
+```{r}
 
 class_by_cyl_pivot <- class_by_cyl %>%
   spread(cyl, value = mean, drop = FALSE)
@@ -545,7 +520,7 @@ class_by_cyl_pivot
 
 
 
-Dplyr::mutate
+dplyr::mutate
 ========================================================
 
 You can create variables that may (or may not) be useful in your analysis
