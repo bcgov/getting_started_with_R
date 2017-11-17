@@ -116,9 +116,10 @@ WES: scores log
 The RStudio screen 
 ========================================================
 
-(switch to live?)
+(switch to live!)
 
-- main windows
+- walk through the panes
+
 
 
 Let's do something! 
@@ -160,9 +161,13 @@ R uses "packages" to extend the functionality
 
 One set of packages is known as "the tidyverse"
 
+* `ggplot2` - charts and graphs
+* `dplyr` - data wrangling
+* `tidyr` - to spread and gather data tables
 
 
-Installing the tidyverse
+
+Installing the tidyverse (one package that bundles other packages)
 ========================================================
 
 To install a package:
@@ -196,7 +201,7 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 
 
 
-A regression model
+A regression model (base R)
 ========================================================
 
 
@@ -230,7 +235,7 @@ Now...add the regression line to the plot
 
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point() +
-  stat_smooth(method = lm)
+  stat_smooth(method = lm)          # add the `lm` 
 
 ```
 
@@ -247,6 +252,92 @@ http://r4ds.had.co.nz/data-visualisation#aesthetic-mappings.html
 example plots - really nifty
 
 
+
+
+More elaborate examples
+========================================================
+
+A lot of ways you can modify the chart
+
+
+
+Replace regression line with smoothed LOESS line
+========================================================
+
+
+```{r}
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point() +
+  stat_smooth(method = loess)          # add the `loess` 
+
+```
+
+
+Replace regression line with smoothed LOESS line
+========================================================
+title: false
+
+
+```{r, echo = FALSE}
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point() +
+  stat_smooth(method = loess)          # add the `loess` 
+
+```
+
+
+
+More elaborate examples
+========================================================
+
+Replace regression line with smoothed LOESS line
+
+```{r}
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point() +
+  stat_smooth(method = loess)          # add the `loess` 
+
+```
+
+
+
+Highlight the "class" of vehicle
+========================================================
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))
+```
+
+
+Highlight the "class" of vehicle
+========================================================
+title: false
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))
+```
+
+
+
+Highlight the "class" of vehicle, add a smoothed trend line for "subcompact" and "suv"
+========================================================
+
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE, color = "purple") +
+  geom_smooth(data = filter(mpg, class == "suv"), se = FALSE, color = "pink") 
+  
+```
+
+
+
+  
+  
+  
 
 
 Quick detour: Getting help
