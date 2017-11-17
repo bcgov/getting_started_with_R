@@ -1,6 +1,6 @@
 getting staRted
 ========================================================
-author: Martin Monkman & Julie Hawkins
+author: Martin Monkman & Julie Hawkins with Stephanie Yurchak
 date: 2017-11-17
 autosize: true
 
@@ -31,7 +31,7 @@ our workflow
 Why R?
 ========================================================
 
-** Opinionated Analysis Development **
+_*Opinionated Analysis Development*_
 
 Workflow and tooling so that analysis is:
 
@@ -53,11 +53,8 @@ Base R: a script-based statistical analysis tool
 
 
 
-
-An amazing example: Stephanie's work unit tables
+An amazing example: the steps
 ========================================================
-
-wow the crowd
 
 * screen shot of SPSS file
 * screen shot of R code part 1
@@ -66,6 +63,54 @@ wow the crowd
   - start with Excel with README tab
   - run code part 3 WU
   - show full file
+
+
+
+
+WES: micro data (SPSS file - variables)
+========================================================
+
+<div align="center">
+<img src="1.SPSSdata1.png" width=1200 height=600>
+</div>
+
+
+
+WES: micro data (SPSS file - data)
+========================================================
+
+<div align="center">
+<img src="2.SPSSdata2.png" width=1200 height=600>
+</div>
+
+
+
+WES: driver log
+========================================================
+
+<div align="center">
+<img src="4.Driver_Log.png" width=1200 height=600>
+</div>
+
+
+
+WES: response log
+========================================================
+
+<div align="center">
+<img src="5.Response_Log.png" width=1200 height=600>
+</div>
+
+
+WES: scores log
+========================================================
+
+<div align="center">
+<img src="6.Scores_Log.png" width=1200 height=400>
+</div>
+
+
+
 
 
 The RStudio screen 
