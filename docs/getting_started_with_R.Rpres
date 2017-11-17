@@ -192,16 +192,6 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
   geom_point()
 ```
 
-`ggplot2`: package for data visualization
-========================================================
-title: false
-
-```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-
-ggplot(data = mpg, aes(x = displ, y = hwy)) + 
-  geom_point()
-
-```
 
 
 A regression model (base R)
@@ -245,15 +235,6 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
   stat_smooth(method = lm)          # add the `lm` 
 ```
 
-Now...add the regression line to the plot
-========================================================
-title: false
-
-```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-ggplot(data = mpg, aes(x = displ, y = hwy)) + 
-  geom_point() +
-  stat_smooth(method = lm)          # add the `lm` 
-```
 
 
 Data Visualization
@@ -261,7 +242,7 @@ Data Visualization
 
 _R Data for Science_ - Garrett Grolemund & Hadley Wickham
 
-http://r4ds.had.co.nz/data-visualisation#aesthetic-mappings.html
+http://r4ds.had.co.nz/data-visualisation
 
 
 More elaborate analysis
@@ -280,15 +261,6 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 ```
 
 
-Replace regression line with smoothed LOESS line
-========================================================
-title: false
-
-```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-ggplot(data = mpg, aes(x = displ, y = hwy)) + 
-  geom_point() +
-  stat_smooth(method = loess)          # add the `loess` 
-```
 
 
 
@@ -302,18 +274,10 @@ ggplot(data = mpg) +
 ```
 
 
-Highlight the "class" of vehicle
-========================================================
-title: false
-
-```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = class))
-```
 
 
 
-Highlight the "class" of vehicle, add a smoothed trend line for "subcompact" and "suv"
+...and add a smoothed trend line for "subcompact" and "suv"
 ========================================================
 
 ```{r}
@@ -323,19 +287,11 @@ fancyplot <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
   geom_smooth(data = filter(mpg, class == "suv"), se = FALSE, color = "pink") 
 ```
 
-```{r eval = FALSE}
 fancyplot
-
-```
-
-
-fancy plot
-========================================================
+========================
 title: false
 
-
 ```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-
 fancyplot
 
 ```
@@ -351,24 +307,6 @@ fancyplot +
        subtitle = "Sub-compacts are more efficient than SUVs",
        caption = "Source: EPA (fueleconomy.gov)", 
        x = "Engine displacement (cubic litres)", y = "Miles per gallon (highway)") 
-```
-
-
-fancy plot plus
-========================================================
-title: false
-
-
-```{r, echo = FALSE, fig.height = 10, fig.width = 15}
-
-fancyplot +
-  theme_bw() +
-  labs(title = "Fuel economy by engine displacement",
-       subtitle = "Sub-compacts are more efficient than SUVs",
-       caption = "Source: EPA (fueleconomy.gov)", 
-       x = "Engine displacement (cubic litres)", y = "Miles per gallon (highway)") 
-  
-  
 ```
 
 
@@ -545,3 +483,19 @@ http://www.env.gov.bc.ca/soe/indicators/land/land-designations.html
 U.S. Census: ethnic diversity by neighborhood
 https://walkerke.shinyapps.io/neighborhood_diversity/
 
+
+
+Additional resources
+============================================
+
+[_R Data for Science_](http://r4ds.had.co.nz) - Garrett Grolemund & Hadley Wickham
+
+[the tidyverse](https://www.tidyverse.org/)
+
+[RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+[R graph catalog](http://shinyapps.stat.ubc.ca/r-graph-catalog/)
+
+[What is an R package](www.statmethods.net/interface/packages.html)
+
+[stackoverflow](https://stackoverflow.com/questions/tagged/r)
